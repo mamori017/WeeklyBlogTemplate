@@ -17,6 +17,14 @@ namespace WeeklyBlogTemplate.Test
             Assert.AreEqual(answer, output);
         }
 
+        [TestMethod()]
+        [ExpectedException(typeof(System.FormatException))]
+        public void GetTitleFormatExceptionTest()
+        {
+            string output = Template.GetTitleFormat(dt, Int32.Parse(""));
+        }
+
+
         [TestMethod]
         public void GetContentFormatTest()
         {
@@ -26,6 +34,13 @@ namespace WeeklyBlogTemplate.Test
             Assert.AreEqual(answer, output);
         }
 
+        [TestMethod()]
+        [ExpectedException(typeof(System.FormatException))]
+        public void GetContentFormatExceptionTest()
+        {
+            string output = Template.GetContentFormat(DateTime.Parse("2018/07/32"));
+        }
+        
         [TestMethod]
         public void CreateOutputStringTest()
         {
@@ -33,6 +48,13 @@ namespace WeeklyBlogTemplate.Test
             string output = Template.CreateOutputString(DateEdit.GetWeekStartDate(dt), DateEdit.GetWeekCount(dt)).Replace("\n","");
 
             Assert.AreEqual(answer, output);
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(System.FormatException))]
+        public void CreateOutputStringExceptionTest()
+        {
+            string output = Template.CreateOutputString(DateTime.Parse("2018/07/32"), 2);
         }
     }
 }

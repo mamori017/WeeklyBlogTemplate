@@ -1,6 +1,7 @@
 # WeeklyBlogTemplate
 
 [![Build status](https://ci.appveyor.com/api/projects/status/2adibjfnp4a55cuw?svg=true)](https://ci.appveyor.com/project/mamori017/weeklyblogtemplate)
+[![codecov](https://codecov.io/gh/mamori017/WeeklyBlogTemplate/branch/master/graph/badge.svg)](https://codecov.io/gh/mamori017/WeeklyBlogTemplate)
 [![Release](https://img.shields.io/github/release/mamori017/WeeklyBlogTemplate.svg)](https://github.com/mamori017/WeeklyBlogTemplate/releases/latest)
 [![License](https://img.shields.io/github/license/mamori017/WeeklyBlogTemplate.svg)](https://github.com/mamori017/WeeklyBlogTemplate/blob/master/LICENSE)
 

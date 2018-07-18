@@ -25,19 +25,6 @@ namespace WeeklyBlogTemplate {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("==============================\r\n      WeeklyBlogTemplate\r\n Copyright (C) 2018 mam" +
-            "ori017\r\n==============================")]
-        public string Title {
-            get {
-                return ((string)(this["Title"]));
-            }
-            set {
-                this["Title"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(".\\Output\\")]
         public string OutputPath {
             get {

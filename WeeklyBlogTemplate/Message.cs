@@ -10,35 +10,35 @@ namespace WeeklyBlogTemplate
         /// </summary>
         public static void ShowTitle()
         {
-            Console.WriteLine(Settings.Default.Title);
+            Console.WriteLine(StringFormat.Default.Title);
         }
 
         /// <summary>
         /// ShowFinishedMessage
         /// </summary>
         /// <param name="OutputPath"></param>
-        /// <param name="Finished"></param>
-        public static void ShowFinishedMessage(bool Finished = false)
+        /// <param name="finished"></param>
+        public static void ShowFinishedMessage(bool finished = false)
         {
-            if (Finished)
+            if (finished)
             {
-                Console.WriteLine("Output   : " + Path.GetFullPath(Settings.Default.OutputFileName));
-                Console.WriteLine("\nGenelate finished");
+                Console.WriteLine(string.Format(StringFormat.Default.Output,Path.GetFullPath(Settings.Default.OutputFileName)));
+                Console.WriteLine(StringFormat.Default.Finish);
             }
             else
             {
-                Console.WriteLine("\nGenelate error");
+                Console.WriteLine(StringFormat.Default.Error);
             }
-            Console.WriteLine("\nPress any key...");
+            Console.WriteLine(StringFormat.Default.Press);
             Console.ReadKey();
         }
 
         /// <summary>
         /// ShowTargetWeek
         /// </summary>
-        public static void ShowTargetWeek(DateTime StartDate, int WeekCount)
+        public static void ShowTargetWeek(DateTime startDate, int weekCount)
         {
-            Console.WriteLine("Target   : Week " + WeekCount + "(" + StartDate.ToShortDateString() + "-" + StartDate.AddDays(6).ToShortDateString() + ")");
+            Console.WriteLine(StringFormat.Default.TargetWeek, weekCount, startDate.ToShortDateString(), startDate.AddDays(6).ToShortDateString());
         }
 
     }

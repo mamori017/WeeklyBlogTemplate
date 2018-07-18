@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WeeklyBlogTemplate" GeneratedClassName="Format">
+  <Profiles />
+  <Settings>
+    <Setting Name="Title" Type="System.String" Scope="User">
+      <Value Profile="(Default)">==============================
+      WeeklyBlogTemplate
+ Copyright (C) 2018 mamori017
+==============================</Value>
+    </Setting>
+    <Setting Name="Output" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Output   : {0}</Value>
+    </Setting>
+    <Setting Name="Finish" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Genelate finished</Value>
+    </Setting>
+    <Setting Name="Error" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Genelate error</Value>
+    </Setting>
+    <Setting Name="Press" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Press any key...</Value>
+    </Setting>
+    <Setting Name="TargetWeek" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Target   : Week {0}({1}-{2})</Value>
+    </Setting>
+    <Setting Name="OutputTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{0}年 第{1}週</Value>
+    </Setting>
+    <Setting Name="OutputContent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">## {1}/{2}{0}====={0}##### {0}{0}</Value>
+    </Setting>
+    <Setting Name="OutputText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[Title]{0}{1}{0}{0}[Content]{0}{2}</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

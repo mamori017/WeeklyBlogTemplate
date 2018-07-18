@@ -12,9 +12,9 @@ namespace WeeklyBlogTemplate
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            DateTime StartDate;
-            string OutPutString = "";
-            int WeekCount = 0;
+            DateTime startDate;
+            string outputString = "";
+            int weekCount = 0;
 
             try
             {                
@@ -22,15 +22,15 @@ namespace WeeklyBlogTemplate
 
                 DirectoryCheck();
 
-                StartDate = DateEdit.GetWeekStartDate(DateTime.Now);
+                startDate = DateEdit.GetWeekStartDate(DateTime.Now);
 
-                WeekCount = DateEdit.GetWeekCount(StartDate);
+                weekCount = DateEdit.GetWeekCount(startDate);
 
-                Message.ShowTargetWeek(StartDate, WeekCount);
+                Message.ShowTargetWeek(startDate, weekCount);
 
-                OutPutString = Template.CreateOutPutString(StartDate, WeekCount);
+                outputString = Template.CreateOutputString(startDate, weekCount);
 
-                if (CreateNewFile(OutPutString))
+                if (CreateNewFile(outputString))
                 {
                     Message.ShowFinishedMessage(true);
                 }
@@ -73,24 +73,24 @@ namespace WeeklyBlogTemplate
         /// <summary>
         /// CreateNewFile
         /// </summary>
-        /// <param name="OutputString"></param>
+        /// <param name="outputString"></param>
         /// <returns></returns>
-        private static bool CreateNewFile(string OutputString)
+        private static bool CreateNewFile(string outputString)
         {
-            String OutputFileFullPath = Settings.Default.OutputPath + Settings.Default.OutputFileName;
+            String outputFilePath = Settings.Default.OutputPath + Settings.Default.OutputFileName;
             Encoding objEncoding = new UTF8Encoding(false);
-            StreamWriter Writer = null;;
+            StreamWriter objWriter = null;;
 
             try
             {
-                if (File.Exists(OutputFileFullPath))
+                if (File.Exists(outputFilePath))
                 {
-                    File.Delete(OutputFileFullPath);
+                    File.Delete(outputFilePath);
                 }
 
-                Writer = new StreamWriter(OutputFileFullPath, true, objEncoding);
-                Writer.Write(OutputString);
-                Writer.Close();
+                objWriter = new StreamWriter(outputFilePath, true, objEncoding);
+                objWriter.Write(outputString);
+                objWriter.Close();
 
                 return true;
             }
@@ -98,6 +98,18 @@ namespace WeeklyBlogTemplate
             {
                 Log.ExceptionOutput(ex);
                 throw;
+            }
+            finally
+            {
+                if (objEncoding != null)
+                {
+                    objEncoding = null;
+                }
+
+                if (objWriter != null)
+                {
+                    objWriter = null;
+                }
             }
         }
     }

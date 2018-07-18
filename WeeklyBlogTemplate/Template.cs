@@ -7,14 +7,14 @@ namespace WeeklyBlogTemplate
         /// <summary>
         /// GetTitleFormat
         /// </summary>
-        /// <param name="TargetDate"></param>
-        /// <param name="WeekCount"></param>
+        /// <param name="targetDate"></param>
+        /// <param name="weekCount"></param>
         /// <returns></returns>
-        public static String GetTitleFormat(DateTime TargetDate, int WeekCount)
+        public static String GetTitleFormat(DateTime targetDate, int weekCount)
         {
             try
             {
-                return TargetDate.Year + "年 第" + WeekCount + "週"; ;
+                return string.Format(StringFormat.Default.OutputTitle,targetDate.Year, weekCount);
             }
             catch (Exception ex)
             {
@@ -26,24 +26,20 @@ namespace WeeklyBlogTemplate
         /// <summary>
         /// GetContentFormat
         /// </summary>
-        /// <param name="StartDate"></param>
+        /// <param name="startDate"></param>
         /// <returns></returns>
-        public static String GetContentFormat(DateTime StartDate)
+        public static String GetContentFormat(DateTime startDate)
         {
-            DateTime TargetDate;
-            String ReturnString = "";
+            String content = "";
 
             try
             {
                 for (int i = 0; i < 7; i++)
                 {
-                    TargetDate = StartDate.AddDays(i);
-                    ReturnString += "## " + TargetDate.Month + "/" + TargetDate.Day + "\n";
-                    ReturnString += "=====\n";
-                    ReturnString += "##### \n\n";
+                    content += string.Format(StringFormat.Default.OutputContent,"\n", startDate.AddDays(i).Month, startDate.AddDays(i).Day);
                 }
 
-                return ReturnString;
+                return content;
             }
             catch (Exception ex)
             {
@@ -55,22 +51,14 @@ namespace WeeklyBlogTemplate
         /// <summary>
         /// CreateOutPutString
         /// </summary>
-        /// <param name="StartDate"></param>
-        /// <param name="WeekCount">Week</param>
+        /// <param name="startDate"></param>
+        /// <param name="weekCount">Week</param>
         /// <returns></returns>
-        public static string CreateOutPutString(DateTime StartDate, int WeekCount)
+        public static string CreateOutputString(DateTime startDate, int weekCount)
         {
             try
             {
-                String OutPutString = "";
-
-                OutPutString += "[Title]\n";
-                OutPutString += Template.GetTitleFormat(StartDate, WeekCount);
-                OutPutString += "\n\n";
-                OutPutString += "[Content]\n";
-                OutPutString += Template.GetContentFormat(StartDate);
-
-                return OutPutString;
+                return string.Format(StringFormat.Default.OutputText,"\n", GetTitleFormat(startDate, weekCount), GetContentFormat(startDate));
             }
             catch (Exception ex)
             {

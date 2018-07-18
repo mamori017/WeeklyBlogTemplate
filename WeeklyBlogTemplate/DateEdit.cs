@@ -8,40 +8,13 @@ namespace WeeklyBlogTemplate
         /// <summary>
         /// GetWeekStartDate
         /// </summary>
-        /// <param name="TargetDate"></param>
+        /// <param name="targetDate"></param>
         /// <returns></returns>
-        public static DateTime GetWeekStartDate(DateTime TargetDate)
+        public static DateTime GetWeekStartDate(DateTime targetDate)
         {
-            DateTime ReturnDate = TargetDate;
-
             try
             {
-                switch (TargetDate.DayOfWeek)
-                {
-                    case DayOfWeek.Sunday:
-                        break;
-                    case DayOfWeek.Monday:
-                        ReturnDate = TargetDate.AddDays(-1);
-                        break;
-                    case DayOfWeek.Tuesday:
-                        ReturnDate = TargetDate.AddDays(-2);
-                        break;
-                    case DayOfWeek.Wednesday:
-                        ReturnDate = TargetDate.AddDays(-3);
-                        break;
-                    case DayOfWeek.Thursday:
-                        ReturnDate = TargetDate.AddDays(-4);
-                        break;
-                    case DayOfWeek.Friday:
-                        ReturnDate = TargetDate.AddDays(-5);
-                        break;
-                    case DayOfWeek.Saturday:
-                        ReturnDate = TargetDate.AddDays(-6);
-                        break;
-                    default:
-                        break;
-                }
-                return ReturnDate;
+                return targetDate.AddDays(-(int)targetDate.DayOfWeek);
             }
             catch (Exception ex)
             {
@@ -53,16 +26,18 @@ namespace WeeklyBlogTemplate
         /// <summary>
         /// GetWeekCount
         /// </summary>
-        /// <param name="StartDate"></param>
+        /// <param name="startDate"></param>
         /// <returns></returns>
-        public static int GetWeekCount(DateTime StartDate)
+        public static int GetWeekCount(DateTime startDate)
         {
-            int Ret = 0;
+            int weekCount = 0;
 
             try
             {
-                Ret = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(StartDate, CultureInfo.CurrentCulture.DateTimeFormat.CalendarWeekRule, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
-                return Ret;
+                weekCount = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(startDate, 
+                                                                        CultureInfo.CurrentCulture.DateTimeFormat.CalendarWeekRule,
+                                                                        CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
+                return weekCount;
             }
             catch (Exception ex)
             {

@@ -11,9 +11,9 @@ namespace WeeklyBlogTemplate
         /// </summary>
         public static void ExceptionOutput(Exception ex)
         {
-            String OutputLogFileFullPath = Settings.Default.LogPath+ Settings.Default.LogFileName;
+            String logFilePath = Settings.Default.LogPath + Settings.Default.LogFileName;
             Encoding objEncoding = new UTF8Encoding(false);
-            StreamWriter objWriter = new StreamWriter(OutputLogFileFullPath, true, objEncoding);
+            StreamWriter objWriter = new StreamWriter(logFilePath, true, objEncoding);
 
             try
             {

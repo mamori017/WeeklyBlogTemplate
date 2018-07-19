@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace WeeklyBlogTemplate.Test
+namespace WeeklyBlogTemplate.Tests
 {
     [TestClass()]
     public class DateEditTest

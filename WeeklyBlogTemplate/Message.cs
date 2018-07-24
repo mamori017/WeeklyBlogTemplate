@@ -4,7 +4,7 @@ using WeeklyBlogTemplate.Properties;
 
 namespace WeeklyBlogTemplate
 {
-    public class Message
+    public static class Message
     {
         /// <summary>
         /// ShowTitle

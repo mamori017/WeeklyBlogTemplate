@@ -4,13 +4,13 @@ using WeeklyBlogTemplate.Properties;
 
 namespace WeeklyBlogTemplate
 {
-    class Program
+    public class Program
     {
         /// <summary>
         /// Main
         /// </summary>
         /// <param name="args"></param>
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             DateTime startDate;
             string outputString = "";

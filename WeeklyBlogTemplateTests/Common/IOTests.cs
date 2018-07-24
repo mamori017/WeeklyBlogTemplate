@@ -9,7 +9,7 @@ namespace Common.Tests
     public class IOTests
     {
         [TestMethod()]
-        public void DirectoryCheckOnlyTest()
+        public static void DirectoryCheckOnlyTest()
         {
             // Directory not exist
             // Directory check only
@@ -24,7 +24,7 @@ namespace Common.Tests
         }
 
         [TestMethod()]
-        public void DirectoryCheckAndCreateNewOneTest()
+        public static void DirectoryCheckAndCreateNewOneTest()
         {
             // Directory not exist
             // Directory check and create new one
@@ -38,7 +38,7 @@ namespace Common.Tests
         }
 
         [TestMethod()]
-        public void DirectoryCheckTargetExist()
+        public static void DirectoryCheckTargetExist()
         {
             // Directory exist
             if (!Directory.Exists(Settings.Default.IODirectoryPath))
@@ -53,7 +53,7 @@ namespace Common.Tests
 
         [TestMethod()]
         [ExpectedException(typeof(System.ArgumentException))]
-        public void DirectoryCheckArgumentException()
+        public static void DirectoryCheckArgumentException()
         {
             try
             {

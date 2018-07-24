@@ -1,6 +1,6 @@
-﻿using System;
-using System.Text;
-using System.IO;
+﻿using Common;
+using System;
+using WeeklyBlogTemplate.Properties;
 
 namespace WeeklyBlogTemplate
 {
@@ -20,7 +20,7 @@ namespace WeeklyBlogTemplate
             {                
                 Message.ShowTitle();
 
-                Class1.DirectoryCheck(Settings.Default.OutputPath);
+                IO.DirectoryCheck(Settings.Default.OutputPath);
 
                 startDate = DateEdit.GetWeekStartDate(DateTime.Now);
 
@@ -30,7 +30,7 @@ namespace WeeklyBlogTemplate
 
                 outputString = Template.CreateOutputString(startDate, weekCount);
 
-                if (Class1.CreateNewFile(outputString))
+                if (IO.CreateTextFile(Settings.Default.OutputPath, Settings.Default.OutputFileName, outputString,false))
                 {
                     Message.ShowFinishedMessage(true);
                 }
@@ -41,7 +41,7 @@ namespace WeeklyBlogTemplate
             }
             catch (Exception ex)
             {
-                Log.ExceptionOutput(ex);
+                Log.ExceptionOutput(ex, Settings.Default.LogPath, Settings.Default.LogFileName);
                 throw;
             }
         }

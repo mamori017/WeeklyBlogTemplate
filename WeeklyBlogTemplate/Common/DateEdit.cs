@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
 
-namespace WeeklyBlogTemplate
+namespace Common
 {
-    public class DateEdit
+    public static class DateEdit
     {
         /// <summary>
         /// GetWeekStartDate
@@ -12,15 +12,7 @@ namespace WeeklyBlogTemplate
         /// <returns></returns>
         public static DateTime GetWeekStartDate(DateTime targetDate)
         {
-            try
-            {
                 return targetDate.AddDays(-(int)targetDate.DayOfWeek);
-            }
-            catch (Exception ex)
-            {
-                Log.ExceptionOutput(ex);
-                throw;
-            }
         }
 
         /// <summary>
@@ -32,18 +24,11 @@ namespace WeeklyBlogTemplate
         {
             int weekCount = 0;
 
-            try
-            {
-                weekCount = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(startDate, 
+            weekCount = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(startDate,
                                                                         CultureInfo.CurrentCulture.DateTimeFormat.CalendarWeekRule,
                                                                         CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
-                return weekCount;
-            }
-            catch (Exception ex)
-            {
-                Log.ExceptionOutput(ex);
-                throw;
-            }
+
+            return weekCount;
         }
     }
 }

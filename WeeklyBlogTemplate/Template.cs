@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 
 namespace WeeklyBlogTemplate
 {
@@ -14,11 +15,11 @@ namespace WeeklyBlogTemplate
         {
             try
             {
-                return string.Format(StringFormat.Default.OutputTitle,targetDate.Year, weekCount);
+                return string.Format(Properties.StringFormat.Default.OutputTitle,targetDate.Year, weekCount);
             }
             catch (Exception ex)
             {
-                Log.ExceptionOutput(ex);
+                Log.ExceptionOutput(ex, Properties.Settings.Default.LogPath, Properties.Settings.Default.LogFileName);
                 throw;
             }
         }
@@ -36,14 +37,14 @@ namespace WeeklyBlogTemplate
             {
                 for (int i = 0; i < 7; i++)
                 {
-                    content += string.Format(StringFormat.Default.OutputContent,"\n", startDate.AddDays(i).Month, startDate.AddDays(i).Day);
+                    content += string.Format(Properties.StringFormat.Default.OutputContent,"\n", startDate.AddDays(i).Month, startDate.AddDays(i).Day);
                 }
 
                 return content;
             }
             catch (Exception ex)
             {
-                Log.ExceptionOutput(ex);
+                Log.ExceptionOutput(ex, Properties.Settings.Default.LogPath, Properties.Settings.Default.LogFileName);
                 throw;
             }
         }
@@ -58,11 +59,11 @@ namespace WeeklyBlogTemplate
         {
             try
             {
-                return string.Format(StringFormat.Default.OutputText,"\n", GetTitleFormat(startDate, weekCount), GetContentFormat(startDate));
+                return string.Format(Properties.StringFormat.Default.OutputText,"\n", GetTitleFormat(startDate, weekCount), GetContentFormat(startDate));
             }
             catch (Exception ex)
             {
-                Log.ExceptionOutput(ex);
+                Log.ExceptionOutput(ex,Properties.Settings.Default.LogPath, Properties.Settings.Default.LogFileName);
                 throw;
             }
         }

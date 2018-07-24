@@ -1,6 +1,6 @@
 ---
 exclude_paths:
-  - 'WeeklyBlogTemplate/Properties/'
+  - 'WeeklyBlogTemplate/Properties/*'
   - 'WeeklyBlogTemplate/Settings.cs'
-  - 'WeeklyBlogTemplateTests/Properties/'
+  - 'WeeklyBlogTemplateTests/Properties/*'
   

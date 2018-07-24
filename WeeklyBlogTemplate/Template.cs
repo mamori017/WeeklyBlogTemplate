@@ -1,5 +1,6 @@
 ﻿using Common;
 using System;
+using System.Text;
 
 namespace WeeklyBlogTemplate
 {
@@ -31,21 +32,25 @@ namespace WeeklyBlogTemplate
         /// <returns></returns>
         public static String GetContentFormat(DateTime startDate)
         {
-            String content = "";
+            StringBuilder stringBuilder = new StringBuilder();
 
             try
             {
                 for (int i = 0; i < 7; i++)
                 {
-                    content += string.Format(Properties.StringFormat.Default.OutputContent,"\n", startDate.AddDays(i).Month, startDate.AddDays(i).Day);
+                    stringBuilder.Append(string.Format(Properties.StringFormat.Default.OutputContent,"\n", startDate.AddDays(i).Month, startDate.AddDays(i).Day));
                 }
 
-                return content;
+                return stringBuilder.ToString();
             }
             catch (Exception ex)
             {
                 Log.ExceptionOutput(ex, Properties.Settings.Default.LogPath, Properties.Settings.Default.LogFileName);
                 throw;
+            }
+            finally
+            {
+                stringBuilder = null;
             }
         }
 

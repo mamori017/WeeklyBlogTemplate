@@ -9,7 +9,7 @@ namespace Common.Tests
     public class LogTests
     {
         [TestMethod()]
-        public void OutputTest()
+        public static void OutputTest()
         {
             Log.Output("test",
                        Settings.Default.LogFilePath,
@@ -19,7 +19,7 @@ namespace Common.Tests
         }
 
         [TestMethod()]
-        public void ExceptionOutputTest()
+        public static void ExceptionOutputTest()
         {
             try
             {

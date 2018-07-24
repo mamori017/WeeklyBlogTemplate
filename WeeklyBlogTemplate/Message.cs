@@ -23,8 +23,7 @@ namespace WeeklyBlogTemplate
         {
             if (finished)
             {
-                Console.WriteLine(string.Format(StringFormat.Default.Output,Path.GetFullPath(Settings.Default.OutputFileName)));
-                Console.WriteLine(StringFormat.Default.Finish);
+                Console.WriteLine(string.Format(StringFormat.Default.Output,Path.GetFullPath(Settings.Default.OutputFileName)) + "\n" + StringFormat.Default.Finish);
             }
             else
             {

@@ -75,7 +75,7 @@ namespace Common.Tests
             }
         }
 
-        private void DirectoryCheckTestAfterProcess()
+        private static void DirectoryCheckTestAfterProcess()
         {
             // Delete test object
             if (Directory.Exists(Settings.Default.IODirectoryPath))
@@ -88,7 +88,7 @@ namespace Common.Tests
 
 
         [TestMethod()]
-        public void CreateTextFileTest()
+        public static void CreateTextFileTest()
         {
             // Delete test object
             if (Directory.Exists(Settings.Default.IODirectoryPath))
@@ -125,7 +125,7 @@ namespace Common.Tests
 
         [TestMethod()]
         [ExpectedException(typeof(System.IO.IOException))]
-        public void CreateTextFileIOExceptionTest()
+        public static void CreateTextFileIOExceptionTest()
         {
             StreamReader reader = null;
 
@@ -145,8 +145,6 @@ namespace Common.Tests
             {
                 reader = new StreamReader(Settings.Default.IOFilePath + "\\" +
                                                        Settings.Default.IOFileName);
-
-                String a = reader.ReadToEnd();
 
                 IO.CreateTextFile(Settings.Default.IOFilePath,
                       Settings.Default.IOFileName,

@@ -7,7 +7,7 @@ namespace Common.Tests
     public class DateEditTests
     {
         [TestMethod()]
-        public void GetWeekStartDateTest()
+        public static void GetWeekStartDateTest()
         {
             DateTime testDate = DateTime.Parse("2018/07/19");
 
@@ -17,7 +17,7 @@ namespace Common.Tests
         }
 
         [TestMethod()]
-        public void GetWeekCountTest()
+        public static void GetWeekCountTest()
         {
             DateTime testDate = DateTime.Parse("2018/07/19");
 

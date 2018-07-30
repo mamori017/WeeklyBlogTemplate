@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-using WeeklyBlogTemplateTests.Properties;
 
 namespace Common.Tests
 {
@@ -9,65 +8,65 @@ namespace Common.Tests
     public class IOTests
     {
         [TestMethod()]
-        public static void DirectoryCheckOnlyTest()
+        public void DirectoryCheckOnlyTest()
         {
             // Directory not exist
             // Directory check only
-            if (Directory.Exists(Settings.Default.IODirectoryPath))
+            if (Directory.Exists(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath))
             {
-                Directory.Delete(Settings.Default.IODirectoryPath);
+                Directory.Delete(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath);
             }
 
-            Assert.AreEqual(true, IO.DirectoryCheck(Settings.Default.IODirectoryPath));
+            Assert.AreEqual(true, IO.DirectoryCheck(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath));
 
             DirectoryCheckTestAfterProcess();
         }
 
         [TestMethod()]
-        public static void DirectoryCheckAndCreateNewOneTest()
+        public void DirectoryCheckAndCreateNewOneTest()
         {
             // Directory not exist
             // Directory check and create new one
 
-            if (IO.DirectoryCheck(Settings.Default.IODirectoryPath, true))
+            if (IO.DirectoryCheck(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath, true))
             {
-                Assert.AreEqual(true, Directory.Exists(Settings.Default.IODirectoryPath));
+                Assert.AreEqual(true, Directory.Exists(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath));
             }
 
             DirectoryCheckTestAfterProcess();
         }
 
         [TestMethod()]
-        public static void DirectoryCheckTargetExist()
+        public void DirectoryCheckTargetExist()
         {
             // Directory exist
-            if (!Directory.Exists(Settings.Default.IODirectoryPath))
+            if (!Directory.Exists(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath))
             {
-                Directory.CreateDirectory(Settings.Default.IODirectoryPath);
+                Directory.CreateDirectory(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath);
             }
 
-            Assert.AreEqual(false, IO.DirectoryCheck(Settings.Default.IODirectoryPath));
+            Assert.AreEqual(false, IO.DirectoryCheck(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath));
 
             DirectoryCheckTestAfterProcess();
         }
 
         [TestMethod()]
         [ExpectedException(typeof(System.ArgumentException))]
-        public static void DirectoryCheckArgumentException()
+        public void DirectoryCheckArgumentException()
         {
             try
             {
                 // Directory exist
-                if (!Directory.Exists(Settings.Default.IODirectoryPath))
+                if (!Directory.Exists(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath))
                 {
-                    Directory.CreateDirectory(Settings.Default.IODirectoryPath);
+                    Directory.CreateDirectory(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath);
                 }
                 else
                 {
-                    Directory.Delete(Settings.Default.IODirectoryPath, true);
+                    Directory.Delete(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath, true);
                 }
 
-                IO.DirectoryCheck("?" + Settings.Default.IODirectoryPath, true);
+                IO.DirectoryCheck("?" + WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath, true);
             }
             finally
             {
@@ -75,12 +74,12 @@ namespace Common.Tests
             }
         }
 
-        private static void DirectoryCheckTestAfterProcess()
+        private void DirectoryCheckTestAfterProcess()
         {
             // Delete test object
-            if (Directory.Exists(Settings.Default.IODirectoryPath))
+            if (Directory.Exists(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath))
             {
-                Directory.Delete(Settings.Default.IODirectoryPath, true);
+                Directory.Delete(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath, true);
             }
         }
 
@@ -88,66 +87,74 @@ namespace Common.Tests
 
 
         [TestMethod()]
-        public static void CreateTextFileTest()
+        public void CreateTextFileTest()
         {
             // Delete test object
-            if (Directory.Exists(Settings.Default.IODirectoryPath))
+            if (Directory.Exists(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath))
             {
-                Directory.Delete(Settings.Default.IODirectoryPath, true);
+                Directory.Delete(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath, true);
             }
 
-            Assert.AreEqual(true, IO.CreateTextFile(Settings.Default.IOFilePath,
-                  Settings.Default.IOFileName,
-                  "test",
-                  false,
-                  IO.EncodeType.sjis));
+            Assert.AreEqual(true, IO.CreateTextFile(WeeklyBlogTemplateTests.Properties.Settings.Default.IOFilePath,
+                                                    WeeklyBlogTemplateTests.Properties.Settings.Default.IOFileName,
+                                                    "test",
+                                                    false,
+                                                    IO.EncodeType.sjis));
 
-            Assert.AreEqual(true, IO.CreateTextFile(Settings.Default.IOFilePath,
-                              Settings.Default.IOFileName,
-                              "test",
-                              true,
-                              IO.EncodeType.utf8));
+            Assert.AreEqual(true, IO.CreateTextFile(WeeklyBlogTemplateTests.Properties.Settings.Default.IOFilePath,
+                                                    WeeklyBlogTemplateTests.Properties.Settings.Default.IOFileName,
+                                                    "test",
+                                                    true,
+                                                    IO.EncodeType.utf8));
+
+            Assert.AreEqual(true, IO.CreateTextFile(WeeklyBlogTemplateTests.Properties.Settings.Default.IOFilePath + "\\",
+                                                    WeeklyBlogTemplateTests.Properties.Settings.Default.IOFileName,
+                                                    "test",
+                                                    true,
+                                                    IO.EncodeType.utf8));
 
 
 
-            StreamReader reader = new StreamReader(Settings.Default.IOFilePath + "\\" +
-                                                   Settings.Default.IOFileName);
+            StreamReader reader = new StreamReader(WeeklyBlogTemplateTests.Properties.Settings.Default.IOFilePath + "\\" +
+                                                   WeeklyBlogTemplateTests.Properties.Settings.Default.IOFileName);
 
             String a = reader.ReadToEnd();
 
-            Assert.AreEqual(a, "testtest");
+            Assert.AreEqual(a, "testtesttest");
 
             reader.Close();
 
-            File.Delete(Settings.Default.IOFilePath + "\\" +
-                                                   Settings.Default.IOFileName);
+            File.Delete(WeeklyBlogTemplateTests.Properties.Settings.Default.IOFilePath + "\\" +
+                                                   WeeklyBlogTemplateTests.Properties.Settings.Default.IOFileName);
         }
 
         [TestMethod()]
         [ExpectedException(typeof(System.IO.IOException))]
-        public static void CreateTextFileIOExceptionTest()
+        public void CreateTextFileIOExceptionTest()
         {
             StreamReader reader = null;
 
             // Delete test object
-            if (Directory.Exists(Settings.Default.IODirectoryPath))
+            if (Directory.Exists(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath))
             {
-                Directory.Delete(Settings.Default.IODirectoryPath, true);
+                Directory.Delete(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath, true);
             }
 
-            Assert.AreEqual(true, IO.CreateTextFile(Settings.Default.IOFilePath,
-                  Settings.Default.IOFileName,
+            Assert.AreEqual(true, IO.CreateTextFile(WeeklyBlogTemplateTests.Properties.Settings.Default.IOFilePath,
+                  WeeklyBlogTemplateTests.Properties.Settings.Default.IOFileName,
                   "test",
                   false,
                   IO.EncodeType.utf8));
 
             try
             {
-                reader = new StreamReader(Settings.Default.IOFilePath + "\\" +
-                                                       Settings.Default.IOFileName);
+                reader = new StreamReader(WeeklyBlogTemplateTests.Properties.Settings.Default.IOFilePath + "\\" +
+                                                       WeeklyBlogTemplateTests.Properties.Settings.Default.IOFileName);
 
-                IO.CreateTextFile(Settings.Default.IOFilePath,
-                      Settings.Default.IOFileName,
+                String a = reader.ReadToEnd();
+
+                IO.CreateTextFile(WeeklyBlogTemplateTests.Properties.Settings.Default.IOFilePath,
+                      WeeklyBlogTemplateTests.Properties.Settings.Default.IOFileName,
                       "test",
                       false,
                       IO.EncodeType.utf8);
@@ -157,10 +164,12 @@ namespace Common.Tests
                 if (reader != null)
                 {
                     reader.Close();
-                    Directory.Delete(Settings.Default.IODirectoryPath, true);
+                    Directory.Delete(WeeklyBlogTemplateTests.Properties.Settings.Default.IODirectoryPath, true);
                 }
             }
 
         }
+
+
     }
 }

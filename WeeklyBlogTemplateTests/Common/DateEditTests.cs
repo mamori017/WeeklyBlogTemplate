@@ -1,5 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Common;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Common.Tests
 {
@@ -7,7 +12,7 @@ namespace Common.Tests
     public class DateEditTests
     {
         [TestMethod()]
-        public static void GetWeekStartDateTest()
+        public void GetWeekStartDateTest()
         {
             DateTime testDate = DateTime.Parse("2018/07/19");
 
@@ -17,7 +22,7 @@ namespace Common.Tests
         }
 
         [TestMethod()]
-        public static void GetWeekCountTest()
+        public void GetWeekCountTest()
         {
             DateTime testDate = DateTime.Parse("2018/07/19");
 

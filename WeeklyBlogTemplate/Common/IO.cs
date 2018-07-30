@@ -26,9 +26,9 @@ namespace Common
                 }
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -60,7 +60,7 @@ namespace Common
                 // Set text file full path
                 if (filePath.Substring(filePath.Length - 1) != "\\")
                 {
-                    outputFilePath  = filePath + "\\" + fileName ;
+                    outputFilePath = filePath + "\\" + fileName;
                 }
                 else
                 {
@@ -86,9 +86,9 @@ namespace Common
 
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
             finally
             {

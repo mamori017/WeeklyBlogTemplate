@@ -1,7 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Common;
 using System;
 using System.IO;
-using WeeklyBlogTemplateTests.Properties;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Common.Tests
 {
@@ -9,17 +13,17 @@ namespace Common.Tests
     public class LogTests
     {
         [TestMethod()]
-        public static void OutputTest()
+        public void OutputTest()
         {
             Log.Output("test",
-                       Settings.Default.LogFilePath,
-                       Settings.Default.LogFileName);
+                       WeeklyBlogTemplateTests.Properties.Settings.Default.LogFilePath,
+                       WeeklyBlogTemplateTests.Properties.Settings.Default.LogFileName);
 
-            Assert.AreEqual(true, File.Exists(Settings.Default.LogFilePath + "\\" + Settings.Default.LogFileName));
+            Assert.AreEqual(true, File.Exists(WeeklyBlogTemplateTests.Properties.Settings.Default.LogFilePath + "\\" + WeeklyBlogTemplateTests.Properties.Settings.Default.LogFileName));
         }
 
         [TestMethod()]
-        public static void ExceptionOutputTest()
+        public void ExceptionOutputTest()
         {
             try
             {
@@ -29,11 +33,11 @@ namespace Common.Tests
             catch (Exception ex)
             {
                 Log.ExceptionOutput(ex,
-                                    Settings.Default.ExFilePath,
-                                    Settings.Default.ExFileName);
+                                    WeeklyBlogTemplateTests.Properties.Settings.Default.ExFilePath,
+                                    WeeklyBlogTemplateTests.Properties.Settings.Default.ExFileName);
             }
 
-            Assert.AreEqual(true, File.Exists(Settings.Default.ExFilePath + "\\" + Settings.Default.ExFileName));
+            Assert.AreEqual(true, File.Exists(WeeklyBlogTemplateTests.Properties.Settings.Default.ExFilePath + "\\" + WeeklyBlogTemplateTests.Properties.Settings.Default.ExFileName));
         }
     }
 }

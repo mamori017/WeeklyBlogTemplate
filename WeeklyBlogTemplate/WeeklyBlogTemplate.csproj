@@ -59,12 +59,15 @@
   <ItemGroup>
     <Compile Include="..\..\Common\Common\DateEdit.cs">
       <Link>Common\DateEdit.cs</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="..\..\Common\Common\IO.cs">
       <Link>Common\IO.cs</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="..\..\Common\Common\Log.cs">
       <Link>Common\Log.cs</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Message.cs" />
     <Compile Include="Properties\StringFormat.Designer.cs">

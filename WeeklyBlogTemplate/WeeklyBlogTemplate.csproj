@@ -60,8 +60,8 @@
     <Compile Include="..\..\Common\Common\DateEdit.cs" Condition=" '$(Configuration)' == 'Debug' ">
       <Link>Common\DateEdit.cs</Link>
     </Compile>
-    <Compile Include=".\Common\Common\Log.cs" Condition=" '$(Configuration)' == 'Release' ">
-      <Link>Common\Log.cs</Link>
+    <Compile Include=".\Common\Common\DateEdit.cs" Condition=" '$(Configuration)' == 'Release' ">
+      <Link>Common\DateEdit.cs</Link>
     </Compile>
     <Compile Include="..\..\Common\Common\IO.cs" Condition=" '$(Configuration)' == 'Debug' ">
       <Link>Common\IO.cs</Link>

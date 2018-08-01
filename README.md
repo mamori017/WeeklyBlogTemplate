@@ -17,6 +17,20 @@ I made it because it is troublesome weekly.
 ## Requirement
 
 - .NET Framework 4.6.1
+- [mamori017/Common](https://github.com/mamori017/Common)
+  - https://github.com/mamori017/Common.git
+  - Add File As Link.
+
+## Build
+
+|Configuration |Detail |
+|:-----|:-----|
+|Debug | Local build|
+|Release |AppVeyor CI build.|
+
+Configuration difference is Common repository file reference method. 
+
+Check .csproj for the difference.
 
 ## Usage
 

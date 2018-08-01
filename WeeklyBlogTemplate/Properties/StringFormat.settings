@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WeeklyBlogTemplate" GeneratedClassName="Format">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WeeklyBlogTemplate.Properties" GeneratedClassName="StringFormat">
   <Profiles />
   <Settings>
     <Setting Name="Title" Type="System.String" Scope="User">

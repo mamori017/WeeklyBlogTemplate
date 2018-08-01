@@ -4,11 +4,14 @@ build:
   project: WeeklyBlogTemplate.sln
   verbosity: minimal
 image: Visual Studio 2015
-configuration: Debug
+configuration: Release
 before_build:
-  nuget restore WeeklyBlogTemplate.sln
+  - nuget restore WeeklyBlogTemplate.sln
+  - mkdir .\WeeklyBlogTemplate\Common
+  - git clone -q --branch=master https://github.com/mamori017/Common.git .\WeeklyBlogTemplate\Common
+
 after_test: 
-    - OpenCover.Console.exe -register:user -target:"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe" -targetargs:"/noresults /noisolation /testcontainer:""WeeklyBlogTemplateTests.dll" -targetdir:".\WeeklyBlogTemplateTests\bin\Debug" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -filter:"+[*]* -[WeeklyBlogTemplateTests*]*" -excludebyfile:*\*Designer.cs -output:.\coverage.xml"
+    - OpenCover.Console.exe -register:user -target:"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe" -targetargs:"/noresults /noisolation /testcontainer:""WeeklyBlogTemplateTests.dll" -targetdir:".\WeeklyBlogTemplateTests\bin\Release" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -filter:"+[*]* -[WeeklyBlogTemplateTests*]*" -excludebyfile:*\*Designer.cs -output:.\coverage.xml"
     - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
     - pip install codecov
     - codecov -f ".\coverage.xml"	

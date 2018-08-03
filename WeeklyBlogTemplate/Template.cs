@@ -1,6 +1,7 @@
 ﻿using Common;
 using System;
 using System.Text;
+using WeeklyBlogTemplate.Properties;
 
 namespace WeeklyBlogTemplate
 {
@@ -16,11 +17,11 @@ namespace WeeklyBlogTemplate
         {
             try
             {
-                return string.Format(Properties.StringFormat.Default.OutputTitle,targetDate.Year, weekCount);
+                return string.Format(StringFormat.Default.OutputTitle,targetDate.Year, weekCount);
             }
             catch (Exception ex)
             {
-                Log.ExceptionOutput(ex, Properties.Settings.Default.LogPath, Properties.Settings.Default.LogFileName);
+                Log.ExceptionOutput(ex, Settings.Default.LogPath, Settings.Default.LogFileName);
                 throw;
             }
         }
@@ -38,14 +39,14 @@ namespace WeeklyBlogTemplate
             {
                 for (int i = 0; i < 7; i++)
                 {
-                    stringBuilder.Append(string.Format(Properties.StringFormat.Default.OutputContent,"\n", startDate.AddDays(i).Month, startDate.AddDays(i).Day));
+                    stringBuilder.Append(string.Format(StringFormat.Default.OutputContent,"\n", startDate.AddDays(i).Month, startDate.AddDays(i).Day));
                 }
 
                 return stringBuilder.ToString();
             }
             catch (Exception ex)
             {
-                Log.ExceptionOutput(ex, Properties.Settings.Default.LogPath, Properties.Settings.Default.LogFileName);
+                Log.ExceptionOutput(ex, Settings.Default.LogPath, Settings.Default.LogFileName);
                 throw;
             }
             finally
@@ -64,11 +65,11 @@ namespace WeeklyBlogTemplate
         {
             try
             {
-                return string.Format(Properties.StringFormat.Default.OutputText,"\n", GetTitleFormat(startDate, weekCount), GetContentFormat(startDate));
+                return string.Format(StringFormat.Default.OutputText,"\n", GetTitleFormat(startDate, weekCount), GetContentFormat(startDate));
             }
             catch (Exception ex)
             {
-                Log.ExceptionOutput(ex,Properties.Settings.Default.LogPath, Properties.Settings.Default.LogFileName);
+                Log.ExceptionOutput(ex, Settings.Default.LogPath, Settings.Default.LogFileName);
                 throw;
             }
         }

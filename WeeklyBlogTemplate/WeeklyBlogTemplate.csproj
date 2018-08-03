@@ -57,25 +57,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Common\Common\DateEdit.cs" Condition=" '$(Configuration)' == 'Debug' ">
+    <Compile Include="..\..\Common\Common\DateEdit.cs">
       <Link>Common\DateEdit.cs</Link>
     </Compile>
-    <Compile Include=".\Common\Common\DateEdit.cs" Condition=" '$(Configuration)' == 'Release' ">
-      <Link>Common\DateEdit.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Common\Common\IO.cs" Condition=" '$(Configuration)' == 'Debug' ">
+    <Compile Include="..\..\Common\Common\IO.cs">
       <Link>Common\IO.cs</Link>
     </Compile>
-    <Compile Include=".\Common\Common\IO.cs" Condition=" '$(Configuration)' == 'Release' ">
-      <Link>Common\IO.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Common\Common\Log.cs" Condition=" '$(Configuration)' == 'Debug' ">
+    <Compile Include="..\..\Common\Common\Log.cs">
       <Link>Common\Log.cs</Link>
     </Compile>
-    <Compile Include=".\Common\Common\Log.cs" Condition=" '$(Configuration)' == 'Release' ">
-      <Link>Common\Log.cs</Link>
-    </Compile>
-
     <Compile Include="Message.cs" />
     <Compile Include="Properties\StringFormat.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -21,18 +21,11 @@ I made it because it is troublesome weekly.
   - https://github.com/mamori017/Common.git
   - Add File As Link.
 
-## Build
-
-|Configuration |Detail |
-|:-----|:-----|
-|Debug | Local build|
-|Release |AppVeyor CI build.|
-
-Configuration difference is Common repository file reference method. 
-
-Check .csproj for the difference.
-
 ## Usage
+
+1. ```git clone -q --branch=master https://github.com/mamori017/Common.git ..\Common```
+
+1. Build.
 
 1. Execute WeeklyBlogTemplate.exe and output a template file for my blog entry.
 

@@ -57,15 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Common\Common\DateEdit.cs">
-      <Link>Common\DateEdit.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Common\Common\IO.cs">
-      <Link>Common\IO.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Common\Common\Log.cs">
-      <Link>Common\Log.cs</Link>
-    </Compile>
+    <Compile Include="Function.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Properties\StringFormat.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -103,6 +95,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{8005ffab-810a-4608-9cbb-c1ddfd1b8d2e}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

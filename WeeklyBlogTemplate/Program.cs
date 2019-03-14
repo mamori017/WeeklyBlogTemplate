@@ -1,6 +1,4 @@
-﻿using Common;
-using System;
-using WeeklyBlogTemplate.Properties;
+﻿using System;
 
 namespace WeeklyBlogTemplate
 {
@@ -12,38 +10,22 @@ namespace WeeklyBlogTemplate
         /// <param name="args"></param>
         private static void Main(string[] args)
         {
-            DateTime startDate;
-            string outputString = "";
-            int weekCount = 0;
+            Function objFunction;
 
             try
-            {                
-                Message.ShowTitle();
-
-                IO.DirectoryCheck(Settings.Default.OutputPath);
-
-                startDate = DateEdit.GetWeekStartDate(DateTime.Now);
-
-                weekCount = DateEdit.GetWeekCount(startDate);
-
-                Message.ShowTargetWeek(startDate, weekCount);
-
-                outputString = Template.CreateOutputString(startDate, weekCount);
-
-                if (IO.CreateTextFile(Settings.Default.OutputPath, Settings.Default.OutputFileName, outputString,false))
-                {
-                    Message.ShowFinishedMessage(true);
-                }
-                else
-                {
-                    Message.ShowFinishedMessage(false);
-                }
-            }
-            catch (Exception ex)
             {
-                Log.ExceptionOutput(ex, Settings.Default.LogPath, Settings.Default.LogFileName);
+                objFunction = new Function();
+                objFunction.Start();
+            }
+            catch (Exception)
+            {
                 throw;
             }
+            finally
+            {
+                objFunction = null;
+            }
+
         }
     }
 }

@@ -10,22 +10,27 @@
 
 ## Overview
 
-My weekly blog template.
+My weekly blog template. I made it because it is troublesome weekly.
 
-I made it because it is troublesome weekly.
+## Build
+
+- .NET Framework 4.6.1
 
 ## Requirement
 
-- .NET Framework 4.6.1
 - [mamori017/Common](https://github.com/mamori017/Common)
-  - https://github.com/mamori017/Common.git
-  - Add File As Link.
+
+    | Build | Status | Test | Coverage |
+    |:-----------|:------------|:-----------|:------------|
+    | Appveyor | [![Build status](https://ci.appveyor.com/api/projects/status/1yi6bho565k8xk6e?svg=true)](https://ci.appveyor.com/project/mamori017/common) | Codecov |[![codecov](https://codecov.io/gh/mamori017/Common/branch/master/graph/badge.svg)](https://codecov.io/gh/mamori017/Common)|
+    
+    This project reference another repository files. 
+
+    GitClone.bat is clone another repository on parent directory.
+
+    Execute GitClone.bat only once before open this project.
 
 ## Usage
-
-1. ```git clone -q --branch=master https://github.com/mamori017/Common.git ..\Common```
-
-1. Build.
 
 1. Execute WeeklyBlogTemplate.exe and output a template file for my blog entry.
 
